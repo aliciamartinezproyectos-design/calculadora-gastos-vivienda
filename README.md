@@ -37,7 +37,7 @@ Después abre `http://localhost:8000`.
 
 Los tipos precargados son generales y orientativos para 2026. Varias comunidades aplican tramos o beneficios por edad, renta, discapacidad, familia numerosa, vivienda habitual, VPO, municipio o valor. El usuario puede sobrescribir el tipo fiscal en la interfaz.
 
-El ejemplo inicial replica los importes base del Excel facilitado: vivienda de 233.000 €, TIN 2,6 %, plazo 25 años, notaría 1.165 €, registro 583 €, gestoría 500 €, tasación 600 € y mobiliario esperado de 4.205 €.
+El escenario inicial utiliza Madrid, vivienda de 300.000 €, entrada del 20 %, financiación del 80 %, TIN del 2,8 %, plazo de 25 años, comisión inmobiliaria del 3 %, notaría del 0,5 % y registro de la propiedad del 0,25 %. La comisión puede configurarse como 3 %, 3 % + IVA, 2,5 % + IVA o porcentaje personalizado.
 
 ## Aviso
 

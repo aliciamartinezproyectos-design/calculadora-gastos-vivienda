@@ -21,17 +21,20 @@
     <div class="form-grid">
       <label>Provincia<select id="province"></select></label>
       <label>Tipo de vivienda<select id="homeType"><option value="used">Segunda mano</option><option value="new">Obra nueva</option></select></label>
-      <label>Precio de compra (€)<input id="price" type="number" min="0" step="1000" value="233000"></label>
+      <label>Estado de la vivienda<select id="furnished"><option value="no">Sin amueblar</option><option value="yes">Amueblada, muebles = 0 €</option></select></label>
+      <label>Precio de compra (€)<input id="price" type="number" min="0" step="1000" value="300000"></label>
       <label class="used-only">Valor de referencia catastral (€)<input id="cadastral" type="number" min="0" step="1000" placeholder="Si lo conoces"></label>
-      <label>Financiación bancaria (%)<input id="financePct" type="number" min="0" max="100" step="1" value="60"></label>
-      <label>TIN anual (%)<input id="tin" type="number" min="0" max="20" step="0.01" value="2.60"></label>
+      <label>Financiación bancaria (%)<input id="financePct" type="number" min="0" max="100" step="1" value="80"></label>
+      <label>TIN anual (%)<input id="tin" type="number" min="0" max="20" step="0.01" value="2.80"></label>
       <label>Plazo (años)<input id="years" type="number" min="1" max="40" step="1" value="25"></label>
-      <label>Comisión inmobiliaria comprador (%)<input id="agencyPct" type="number" min="0" max="20" step="0.1" value="0"></label>
+      <label>Comisión inmobiliaria<select id="agencyMode"><option value="3">3%</option><option value="3vat">3% + IVA (21%)</option><option value="2.5vat">2,5% + IVA (21%)</option><option value="custom">Introducir otro porcentaje</option></select></label>
+      <label id="agencyCustomWrap" class="hidden">Comisión personalizada (%)<input id="agencyCustomPct" type="number" min="0" max="20" step="0.01" value="3"></label>
     </div>
+    <p class="field-note">Antes de aceptar una comisión inmobiliaria, confirma expresamente si el porcentaje indicado <strong>incluye o no el IVA del 21%</strong>. Por ejemplo, un 3% + IVA equivale a un coste efectivo del 3,63% sobre el precio.</p>
     <details><summary>Ajustar impuestos y gastos estimados</summary><div class="form-grid compact">
       <label>Tipo fiscal aplicado (%)<input id="taxOverride" type="number" min="0" max="30" step="0.01" placeholder="Automático"></label>
-      <label>Notaría (€)<input id="notary" type="number" min="0" step="50" value="1165"></label>
-      <label>Registro (€)<input id="registry" type="number" min="0" step="25" value="583"></label>
+      <label>Notaría (% del precio)<input id="notaryPct" type="number" min="0" max="5" step="0.01" value="0.5"></label>
+      <label>Registro de la propiedad (% del precio)<input id="registryPct" type="number" min="0" max="5" step="0.01" value="0.25"></label>
       <label>Gestoría (€)<input id="management" type="number" min="0" step="25" value="500"></label>
       <label>Tasación (€)<input id="valuation" type="number" min="0" step="25" value="600"></label>
       <label>Otros gastos (€)<input id="other" type="number" min="0" step="50" value="0"></label>
@@ -52,7 +55,7 @@
   </section>
 
   <section class="card" id="furnitureSection">
-    <div class="section-title"><span>3</span><div><h2>Planificador de muebles</h2><p>Activa, quita, edita o añade artículos por estancia. Se guarda en este dispositivo.</p></div></div>
+    <div class="section-title"><span>3</span><div><h2>Planificador de muebles</h2><p>Activa, quita, edita o añade artículos básicos por estancia. Si arriba marcas “Amueblada”, este bloque no se suma al presupuesto.</p></div></div>
     <div class="furniture-toolbar"><button id="selectAll" class="secondary">Seleccionar todo</button><button id="clearFurniture" class="secondary">Quitar todo</button><button id="restoreFurniture" class="link-button">Restaurar ejemplo del Excel</button></div>
     <div id="rooms" class="rooms"></div>
     <form id="addItemForm" class="add-item">
